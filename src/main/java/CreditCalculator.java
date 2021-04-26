@@ -9,18 +9,27 @@ public class CreditCalculator {
         this.period = period;
         this.rate = rate;
     }
+
+    private double getMonthlyRate()
+    {
+        return this.rate/12/100.0;
+    }
+
+    private double getCoefficient() {
+        double rate = getMonthlyRate();
+        double pou = Math.pow(1 + rate, this.period);
+        return (rate * pou)/(pou - 1);
+    }
+
     public double getMonthlyPayment() {
-       //...
-        return 0;
+        return (Math.round(this.volume * this.getCoefficient()));
     }
 
     public double getTotalAmount() {
-       //...
-        return 0;
+        return this.getMonthlyPayment() * this.period;
     }
 
     public double getOverpayment() {
-        //...
-        return 0;
+        return this.getTotalAmount() - this.volume;
     }
 }

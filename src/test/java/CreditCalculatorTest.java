@@ -1,4 +1,4 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -8,20 +8,20 @@ public class CreditCalculatorTest {
     public void testGetMonthlyPayment()
     {
         CreditCalculator calculator =  new CreditCalculator(1000000, 36, 20);
-        assertTrue(33214 == calculator.getMonthlyPayment());
+        assertTrue(33214 == (int) calculator.getMonthlyPayment());
     }
 
     @Test
     public void testGetTotalAmount()
     {
         CreditCalculator calculator =  new CreditCalculator(1000000, 36, 20);
-        assertTrue(1195704 == calculator.getTotalAmount());
+        assertTrue(1195704 == (int) calculator.getTotalAmount());
     }
 
     @Test
     public void testGetOverpayment()
     {
         CreditCalculator calculator =  new CreditCalculator(1000000, 36, 20);
-        assertTrue(195704 == calculator.getOverpayment());
+        assertTrue(195704 == (int) calculator.getOverpayment());
     }
 }
